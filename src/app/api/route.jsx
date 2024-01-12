@@ -32,9 +32,7 @@ export async function GET() {
         });
       });
     };
-
     const data = await queryAsync("SELECT comidas.id_comidas, comidas.nombre_plato, categorias.nombre_categoria, departamentos.nombre_departamento, comidas.descripcion, comidas.ingredientes, comidas.src_imagen FROM comidas JOIN categorias ON comidas.id_categoria = categorias.id_categoria JOIN departamentos ON comidas.id_departamento = departamentos.id_departamento ORDER BY comidas.id_comidas ASC;");
-
     return NextResponse.json(data);
   } catch (error) {
     console.error("Error fetching data:", error.message);
